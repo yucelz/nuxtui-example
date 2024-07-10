@@ -4,7 +4,7 @@
         Sign-in to Finance Tracker
       </template>
   
-      <form @submit.prevent="handleLogin">
+      <form @submit="handleLogin">
         <UFormGroup label="Email" name="email" class="mb-4" :required="true"
           help="You will receive an email with the confirmation link">
           <UInput type="email" placeholder="Email" required v-model="email" />
