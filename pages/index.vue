@@ -48,17 +48,19 @@ const isOpen = ref(false)
 const { current, previous } = useSelectedTimePeriod(selectedView)
 
 const { pending, refresh, transactions: {
-    incomeCount,
-    expenseCount,
-    incomeTotal,
-    expenseTotal,
-    grouped: {
-        byDate
-    }
+  incomeCount,
+  expenseCount,
+  incomeTotal,
+  expenseTotal,
+  grouped: {
+    byDate
+  }
 } } = useFetchTransactions(current)
-
-const { transactions: {
-    incomeTotal: prevIncomeTotal,
-    expenseTotal: prevExpenseTotal,
+const { refresh: refreshPrevious, transactions: {
+  incomeTotal: prevIncomeTotal,
+  expenseTotal: prevExpenseTotal,
 } } = useFetchTransactions(previous)
+
+await Promise.all([refresh(), refreshPrevious()])
+
 </script>
