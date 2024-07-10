@@ -14,7 +14,7 @@
                             Signed in as
                         </p>
                         <p class="font-medium text-gray-900 dark:text-white">
-                            {{ item.label }}
+                            {{ user.email }}
                         </p>
                     </div>
                 </template>
@@ -35,7 +35,6 @@ const supabase = useSupabaseClient()
 const user = useSupabaseUser()
 const items = [
     [{
-        label: user.value?.email,
         slot: 'account',
         disabled: true
     }], [{

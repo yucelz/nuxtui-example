@@ -4,6 +4,6 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", "@nuxtjs/supabase"],
   compatibilityDate: "2024-07-09",
   supabase: {
-    redirect: false
+    redirect: true,
   }
 });
